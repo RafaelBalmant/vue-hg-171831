@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/vue-file-import.d.ts","./src/vuex.d.ts","./src/store/index.ts","./src/app.vue","./src/components/helloworld.vue","./src/components/sidemenu.vue"],"version":"5.6.2"}

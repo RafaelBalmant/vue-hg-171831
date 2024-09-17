@@ -17,12 +17,12 @@ export default createStore({
         }
     },
     mutations: {
-        toggleMenu (): void {
-            this.state.template.menu.open = !this.getters.sideMenuOpen;
+        toggleMenu (state: State): void {
+            state.template.menu.open = !state.template.menu.open;
         }
     },
     actions: {
-        toggleMenu ({ commit }) {
+        toggleMenu ({ commit }: any) {
             commit('toggleMenu');
         }
     },
