@@ -19,7 +19,13 @@ export default {
 <template>
 
   <div id="side-menu" :class="{ 'menu-hidden': !menuState }">
-    <v-icon name="co-hamburger-menu" scale="2" id="menu-icon" @click="toggleMenu" />
+    <v-icon
+        name="co-hamburger-menu"
+        scale="2"
+        id="menu-icon"
+        @click="toggleMenu"
+        :class="{ 'menu-hidden': !menuState }"
+    />
     <h3> HG </h3>
     <span>1</span>
     <span>2</span>
@@ -29,9 +35,6 @@ export default {
 </template>
 
 <style scoped>
-
-
-
 #side-menu {
   height: 100vh;
   width: 8vw;
@@ -39,13 +42,24 @@ export default {
   color: antiquewhite;
   background-color: var(--purple1);
   position: fixed;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 0 4px 0;
   transition: transform 0.3s;
   box-shadow: #7a5ca1 0 0 3px;
   text-align: center;
-
   @media (max-width: 600px) {
-    width: 95vw;
+    width: 90vw;
+  }
+}
+
+#menu-icon {
+  position: relative;
+  left: 5vw;
+  background-color: var(--purple1);
+  border-radius: 0 2px 0 0 ;
+  cursor: pointer;
+  box-shadow: #7a5ca1 0 0 3px;
+  @media (max-width: 600px) {
+    left: 50vw;
   }
 }
 
@@ -59,20 +73,20 @@ export default {
   margin: 1rem 1rem;
 }
 
-#menu-icon {
-  position: relative;
-  left: 5vw;
-  background-color: var(--purple1);
-  border-radius: 2px;
-  cursor: pointer;
-}
 
-.menu-hidden {
-  transform: translateX(-15vh);
+#side-menu.menu-hidden {
+  transform: translateX(-8vw);
   @media (max-width: 600px) {
-    transform: translateX(-90vw);
+    transform: translateX(-95vw);
   }
 }
+
+#menu-icon.menu-hidden {
+  @media (max-width: 600px) {
+    left: 55vw;
+  }
+}
+
 
 </style>
 
