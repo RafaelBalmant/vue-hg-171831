@@ -1,0 +1,21 @@
+:root {
+    --purple1: #7a5ca1;
+    --purple2: #5e4678;
+    --purple3: #4e3768;
+    --grey1: #808080;
+    --grey2: #606060;
+    --grey3: #404040;
+    --grey4: #202020;
+    --grey5: #000000;
+    html, body {
+        margin: 0;
+        color: var(--purple1);
+        background-color: var(--grey4);
+        font-family: "Inter", sans-serif;
+    }
+
+    #content-app {
+        margin-left: 10vh;
+    }
+}
+
