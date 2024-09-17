@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import SideMenu from "./components/SideMenu.vue";
+import Menu from "./components/template/Menu.vue";
 
 </script>
 
 
 
 <template>
-  <SideMenu/>
-  <div id="content-app">
-    <HelloWorld msg="Vite + Vue" />
-  </div>
+  <Menu />
 </template>
 
 <style scoped>

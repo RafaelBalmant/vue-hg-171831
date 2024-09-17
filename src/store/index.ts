@@ -12,7 +12,7 @@ export default createStore({
     state: {
         template: {
             menu: {
-                open: false
+                open: true
             }
         }
     },

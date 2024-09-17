@@ -17,16 +17,26 @@ export default {
 
 
 <template>
+  <v-icon
+      name="co-hamburger-menu"
+      scale="2"
+      id="open-menu-icon"
+      @click="toggleMenu"
+      :class="{ 'menu-hidden': !menuState }"
+  />
 
   <div id="side-menu" :class="{ 'menu-hidden': !menuState }">
-    <v-icon
-        name="co-hamburger-menu"
-        scale="2"
-        id="menu-icon"
-        @click="toggleMenu"
-        :class="{ 'menu-hidden': !menuState }"
-    />
-    <h3> HG </h3>
+    <div style="display: flex; justify-content: space-between; padding: 1rem">
+      <h3> Holy God </h3>
+      <v-icon
+          name="io-close-circle"
+          scale="2"
+          id="close-menu-icon"
+          @click="toggleMenu"
+          :class="{ 'menu-hidden': !menuState }"
+      />
+    </div>
+
     <span>1</span>
     <span>2</span>
     <span>3</span>
@@ -36,8 +46,8 @@ export default {
 
 <style scoped>
 #side-menu {
-  height: 100vh;
-  width: 8vw;
+  height: 80vh;
+  width: 20vw;
   margin: 0;
   color: antiquewhite;
   background-color: var(--purple1);
@@ -47,20 +57,25 @@ export default {
   box-shadow: #7a5ca1 0 0 3px;
   text-align: center;
   @media (max-width: 600px) {
-    width: 90vw;
+    width: 100vw;
   }
 }
 
-#menu-icon {
-  position: relative;
-  left: 5vw;
+#open-menu-icon {
+  transition: transform 0.3s;
+  position: fixed;
   background-color: var(--purple1);
   border-radius: 0 2px 0 0 ;
   cursor: pointer;
   box-shadow: #7a5ca1 0 0 3px;
-  @media (max-width: 600px) {
-    left: 50vw;
-  }
+  color: antiquewhite;
+}
+
+#close-menu-icon {
+  background-color: var(--purple1);
+  cursor: pointer;
+  box-shadow: #7a5ca1 0 0 3px;
+  color: antiquewhite;
 }
 
 #side-menu > span {
@@ -75,17 +90,12 @@ export default {
 
 
 #side-menu.menu-hidden {
-  transform: translateX(-8vw);
+  transform: translateX(-40vw);
   @media (max-width: 600px) {
-    transform: translateX(-95vw);
+    transform: translateX(-100vw);
   }
 }
 
-#menu-icon.menu-hidden {
-  @media (max-width: 600px) {
-    left: 55vw;
-  }
-}
 
 
 </style>
