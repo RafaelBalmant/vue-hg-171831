@@ -22,7 +22,7 @@ export default createStore({
         },
         user: {
             auth: {
-                token: "true"
+                token: null
             }
         }
     },

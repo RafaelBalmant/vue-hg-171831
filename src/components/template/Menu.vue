@@ -29,7 +29,6 @@ export default {
         @click="toggleMenu"
         :class="{ 'menu-hidden': !menuState }"
     />
-
     <div id="side-menu" :class="{ 'menu-hidden': !menuState }">
       <div style="display: flex; justify-content: space-between; padding: 1rem">
         <h3> Holy God </h3>
@@ -41,7 +40,6 @@ export default {
             :class="{ 'menu-hidden': !menuState }"
         />
       </div>
-
       <span>Estudos</span>
       <span>Meus Dados</span>
       <span>Sair</span>
@@ -57,7 +55,7 @@ export default {
   margin: 0;
   color: antiquewhite;
   background-color: var(--purple1);
-  position: fixed;
+  position: absolute;
   border-radius: 0 0 4px 0;
   transition: transform 0.3s;
   box-shadow: #7a5ca1 0 0 3px;

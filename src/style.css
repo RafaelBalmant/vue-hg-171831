@@ -1,4 +1,5 @@
 :root {
+    /*Remember that use the news collors*/
     --purple1: #7a5ca1;
     --purple2: #5e4678;
     --purple3: #4e3768;
@@ -7,11 +8,26 @@
     --grey3: #404040;
     --grey4: #202020;
     --grey5: #000000;
+
+    --purple-light: #7a5ca1; /* Roxo Claro */
+    --purple-medium: #5e4678; /* Roxo Médio */
+    --purple-dark: #4e3768; /* Roxo Escuro */
+
+    --grey-light: #808080; /* Cinza Claro */
+    --grey-medium-light: #606060; /* Cinza Médio Claro */
+    --grey-medium-dark: #404040; /* Cinza Médio Escuro */
+    --grey-dark: #202020; /* Cinza Escuro */
+    --black: #000000; /* Preto */
     html, body {
-        margin: 0;
         color: var(--purple1);
         background-color: var(--grey4);
         font-family: "Inter", sans-serif;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flow-root;
     }
 
     #content-app {
