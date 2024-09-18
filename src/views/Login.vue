@@ -1,16 +1,22 @@
 <script>
 import {ref} from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const submitFormHandler = () => {
   const userName = ref('');
   const password = ref('');
   const router = useRouter();
+  const store = useStore();
 
   const submitValue = () => {
     if (!userName.value.length || !password.value.length) {
       return console.log("OPS");
     }
+    store.commit('mutationUserToken', {
+      userName: userName.value,
+      password: password.value
+    })
     return router.push("/home")
   };
 
@@ -59,7 +65,8 @@ export default {
 .inputs {
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  justify-content: center;
+  height: 40vh;
   div {
     display: flex;
     flex-direction: column;
@@ -89,18 +96,23 @@ export default {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 10rem auto auto auto;
   width: 30vw;
-  height: 50vh;
+  height: 30vh;
   border-radius: 0.5rem;
   box-shadow: #9976c7 0 1px 5px;;
   background-color: #252525;
+  @media (max-width: 900px) {
+    width: 80vw;
+    height: 40vh;
+  }
 }
 
 .footer {
-  display: block;
+  display: flex;
+  justify-content: end;
   width: 100%;
-  height: 20%;
+  height: 3rem;
   margin-top: auto;
   text-align: right;
   button {

@@ -29,12 +29,19 @@ export default createStore({
     mutations: {
         toggleMenu (state: State): void {
             state.template.menu.open = !state.template.menu.open;
+        },
+        mutationUserToken (state: State, value: any): void {
+            state.user.auth.token = value.password
         }
     },
     actions: {
         toggleMenu ({ commit }: any) {
             commit('toggleMenu');
+        },
+        setUserTokenAction ({commit}: any) {
+            commit('mutationUserToken')
         }
+
     },
     getters: {
         sideMenuOpen: (state: State) => state.template.menu.open,
