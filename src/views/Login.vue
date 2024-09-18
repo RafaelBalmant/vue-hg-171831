@@ -1,4 +1,33 @@
-<script setup lang="ts">
+<script>
+import {ref} from "vue";
+import { useRouter } from "vue-router";
+
+const submitFormHandler = () => {
+  const userName = ref('');
+  const password = ref('');
+  const router = useRouter();
+
+  const submitValue = () => {
+    if (!userName.value.length || !password.value.length) {
+      return console.log("OPS");
+    }
+    return router.push("/home")
+  };
+
+  return {
+    userName,
+    password,
+    submitValue
+  };
+}
+
+export default {
+  setup() {
+    return {
+      ...submitFormHandler()
+    }
+  }
+}
 
 </script>
 
@@ -6,21 +35,20 @@
   <div class="page-container">
     <div class="main-container">
       <div class="header">
-        <h1>Login</h1>
+        <h1>SING IN</h1>
       </div>
       <div class="inputs">
         <div>
           <span>Username</span>
-          <input type="text" />
+          <input type="text" required  v-model="userName"/>
         </div>
         <div>
           <span>Password</span>
-          <input type="password" />
+          <input type="password" required v-model="password"/>
         </div>
       </div>
       <div class="footer">
-        <span>Forget Password</span>
-        <button>Login</button>
+        <button v-on:click="submitValue">Login</button>
       </div>
     </div>
   </div>
@@ -31,11 +59,13 @@
 .inputs {
   display: flex;
   flex-direction: column;
+  height: 30vh;
   div {
     display: flex;
     flex-direction: column;
     margin: 0 0 0.5rem;
     input {
+      border-radius: 0.2rem;
       background-color: #252525;
       border: solid 0.1rem;
       height: 2rem;
@@ -63,7 +93,7 @@
   width: 30vw;
   height: 50vh;
   border-radius: 0.5rem;
-  box-shadow: #9976c7 0 5px 10px;;
+  box-shadow: #9976c7 0 1px 5px;;
   background-color: #252525;
 }
 
@@ -75,14 +105,13 @@
   text-align: right;
   button {
     margin-left: 1rem;
-    background-color: #252525;
-    color: #9976c7;
-    border: solid;
+    background-color: #9976c7;
+    color: black;
+    border: solid #9976c7 ;
     border-radius: 0.2rem;
     padding: 0.5rem;
     width: 30%;
     cursor: pointer;
-
   }
   span {
     cursor: pointer;
