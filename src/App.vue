@@ -1,13 +1,21 @@
-<script setup lang="ts">
-import Menu from "./components/template/Menu.vue";
-
-</script>
-
-
-
 <template>
-  <Menu />
+  <div id="app">
+    <header>
+      <Menu />
+    </header>
+    <main>
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
-<style scoped>
-</style>
+<script>
+import Menu from "./components/template/Menu.vue";
+
+export default {
+  //Name of component
+  name: 'App',
+  // Components that be use on parent component
+  components: { Menu }
+}
+</script>

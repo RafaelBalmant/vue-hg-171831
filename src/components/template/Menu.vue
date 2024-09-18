@@ -5,6 +5,10 @@ export default {
   computed: {
     menuState () {
       return this.$store.getters.sideMenuOpen;
+    },
+    userState () {
+      console.log(this.$store.getters.user);
+      return this.$store.getters.user;
     }
   },
   methods: {
@@ -17,36 +21,38 @@ export default {
 
 
 <template>
-  <v-icon
-      name="co-hamburger-menu"
-      scale="2"
-      id="open-menu-icon"
-      @click="toggleMenu"
-      :class="{ 'menu-hidden': !menuState }"
-  />
+  <div :style="{ display: userState.auth.token ? 'block' : 'none' }">
+    <v-icon
+        name="co-hamburger-menu"
+        scale="2"
+        id="open-menu-icon"
+        @click="toggleMenu"
+        :class="{ 'menu-hidden': !menuState }"
+    />
 
-  <div id="side-menu" :class="{ 'menu-hidden': !menuState }">
-    <div style="display: flex; justify-content: space-between; padding: 1rem">
-      <h3> Holy God </h3>
-      <v-icon
-          name="io-close-circle"
-          scale="2"
-          id="close-menu-icon"
-          @click="toggleMenu"
-          :class="{ 'menu-hidden': !menuState }"
-      />
+    <div id="side-menu" :class="{ 'menu-hidden': !menuState }">
+      <div style="display: flex; justify-content: space-between; padding: 1rem">
+        <h3> Holy God </h3>
+        <v-icon
+            name="io-close-circle"
+            scale="2"
+            id="close-menu-icon"
+            @click="toggleMenu"
+            :class="{ 'menu-hidden': !menuState }"
+        />
+      </div>
+
+      <span>Estudos</span>
+      <span>Meus Dados</span>
+      <span>Sair</span>
     </div>
-
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>{{String(menuState)}}</span>
   </div>
+
 </template>
 
 <style scoped>
 #side-menu {
-  height: 80vh;
+  min-height: 80vh;
   width: 20vw;
   margin: 0;
   color: antiquewhite;
@@ -69,6 +75,7 @@ export default {
   cursor: pointer;
   box-shadow: #7a5ca1 0 0 3px;
   color: antiquewhite;
+  margin: 1rem;
 }
 
 #close-menu-icon {
@@ -86,6 +93,10 @@ export default {
   font-size: larger;
   background-color: var(--purple2);
   margin: 1rem 1rem;
+}
+
+#side-menu > span:last-child {
+  margin-top: 100%!important;
 }
 
 

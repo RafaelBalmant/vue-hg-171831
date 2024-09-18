@@ -5,6 +5,11 @@ interface State {
         menu: {
             open: boolean
         }
+    },
+    user: {
+        auth: {
+            token: String | null
+        }
     }
 }
 
@@ -13,6 +18,11 @@ export default createStore({
         template: {
             menu: {
                 open: false
+            }
+        },
+        user: {
+            auth: {
+                token: "true"
             }
         }
     },
@@ -27,6 +37,7 @@ export default createStore({
         }
     },
     getters: {
-        sideMenuOpen: (state: State) => state.template.menu.open
+        sideMenuOpen: (state: State) => state.template.menu.open,
+        user: (state: State) => state.user
     }
 });
