@@ -21,7 +21,7 @@ export default {
 
 
 <template>
-  <div :style="{ display: userState.auth.token ? 'block' : 'none' }">
+  <div :style="{ display: !userState.auth.token ? 'block' : 'none' }">
     <v-icon
         name="co-hamburger-menu"
         scale="2"

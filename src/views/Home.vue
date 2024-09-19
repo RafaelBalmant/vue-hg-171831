@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
+import Chat from "../components/template/Chat.vue";
 </script>
 
 <template>
-<h1>Home</h1>
+<Chat />
 </template>
 
 <style scoped>
